@@ -1,0 +1,16 @@
+<!doctype html>
+<html>
+<head>
+ <script src="liblmhash.js"></script>
+ <script src="liblmcrack.js"></script>
+ <script>
+  var crackresult;
+  if(location.search) crackresult = lmcrack.cracklm(location.search.substring(1)); 
+  else crackresult = lmcrack.cracklm(prompt("Please enter the LM hash you want to crack. Alternatively, you can specify the hash after a ? at the end of the URL in the address bar."));
+  crackresult.then(data => document.getElementById("status").innerHTML = data);
+ </script>
+</head>
+<body>
+ <h1 id="status">Cracking, please be patient</h1>
+</body>
+</html>
